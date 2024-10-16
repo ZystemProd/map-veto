@@ -10,7 +10,6 @@ Map veto system for Starcraft II where you can also set you map order. Perfect a
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
-3. [Contributing](#contributing)
 4. [License](#license)
 5. [Contact](#contact)
 
