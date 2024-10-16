@@ -54,7 +54,7 @@ or
     3.  Enter new name in the text field.
     4.  Press the 'Change Map Preview' To change the map image
     5.  Check the 'Hide Map Preview' to hide the map image.
-    **_NOTE:_** This settings won't save for next time running this software 
+[!NOTE] This settings won't save for next time running this software
 
 ## License
 This project is licensed under the terms of the MIT license.
