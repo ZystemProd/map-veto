@@ -1,0 +1,379 @@
+@font-face {
+    font-family: 'MyCustomFont'; /* Use any name you want */
+    src: url('../fonts/EuroStyleNormal.ttf') format('truetype'); /* Adjust path based on your structure */
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+  --dark-blue: #0a0d23;
+  --darker-blue: #0a3b6c;
+  --vetoed-red: #8b0000;
+  --hover-blue: #00ffff;
+  --hover-red: #ff3333;
+  --settings-purple: #322F4F;
+}
+
+/* Apply the font to the map list */
+.map-list  {
+  font-family: 'MyCustomFont', sans-serif; /* Use your custom font and fall back to a default sans-serif font */
+  font-size: 19px;
+
+  max-height: 100px; /* Set a fixed height for the map list */
+  overflow: hidden; /* Prevent overflow */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: black; /* Set the background to black */
+  color: white; /* Set the text color to white */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the container horizontally */
+  align-items: center; /* Center the container vertically */
+  height: 100vh; /* Make the body fill the viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Center the container */
+  align-items: flex-start;
+  max-width: 800px; /* Reduce the overall container width */
+
+  width: 100%;
+  gap: 10px; /* Add gap between map list and map preview */
+}
+
+.map-list {
+  display: initial;
+  width: 50%;
+  max-height: 100%;
+  overflow-y: auto;
+  position: relative; /* Required for positioning the order indicator */
+}
+
+.map-preview {
+  width: 56%; /* Adjust the width to make the preview wider */
+  text-align: center;
+  height: 500px; /* Set a fixed height for the map preview container */
+}
+
+#previewImage {
+  width: 100%;
+  max-width: 400px; /* Max width for preview image */
+  max-height: 500px; /* Max height for preview image */
+  object-fit: contain; /* Scale the image while maintaining aspect ratio */
+  border: 2px solid var(--darker-blue); /* White border for better visibility */
+  border-radius: 30px;
+}
+
+/* Other styles remain unchanged */
+.map-list ul {
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.map-list li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: var(--dark-blue); /* Very dark blue background */
+  max-height: 16px;
+  border: 2px solid var(--darker-blue); /* Dark blue border */
+  border-radius: 10px; /* Slightly rounded corners */
+  transition: all 0.3s ease;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out the content */
+  align-items: center; /* Center vertically */
+  cursor: pointer; /* Change cursor to pointer for better UX */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  
+}
+
+/* Styling for the order indicator */
+.order-indicator {
+  font-size: 20px;
+  display: inline-block; /* Show as inline-block */
+  height: 10px;
+  width: 10%; /* Give it 10% width */
+  text-align: center; /* Center the text */
+  color: white; /* White text color */
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 5px; /* Padding for the indicator */
+  transition: background 0.3s; /* Smooth background transition */
+  cursor: pointer; /* Change cursor to pointer for better UX */
+  visibility: visible; /* Ensure it's visible initially */
+}
+
+.order-indicator:hover {
+  background: #555; /* Darker background on hover */
+}
+/* Normal hover effect */
+.map-list li:hover {
+  border-color: var(--hover-blue); /* Neon blue border on hover */
+  background: linear-gradient(to top, black, var(--dark-blue)); /* Gradient background on hover */
+}
+
+/* Vetoed maps (checked maps) */
+.map-list li.vetoed-map {
+  border-color: var(--vetoed-red); /* Dark red border when vetoed */
+  background-color: #330000; /* Darker red background */
+}
+
+/* Hover effect for vetoed maps */
+.map-list li.vetoed-map:hover {
+  border-color: var(--hover-red); /* Neon red border on hover when vetoed */
+  background: linear-gradient(to top, black, #330000); /* Gradient background for vetoed maps */
+}
+
+/* Hide the indicator for vetoed maps */
+.map-list li.vetoed-map .order-indicator {
+  visibility: hidden; /* Hide indicator for vetoed maps */
+}
+
+label span {
+  color: white; /* Ensure labels and spans are white */
+
+}
+
+h2 {
+  color: white;
+}
+
+.control-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between dropdowns */
+}
+
+select, input[type="text"], button {
+  margin: 10px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0; /* Align to the bottom of the page */
+  left: 0;
+  width: 100%; /* Full width of the page */
+  height: 50px; /* Fixed height for the footer */
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically within the footer */
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.footer-logo {
+  position: absolute; /* Position the logo independently */
+  right: 20px; /* Distance from the right edge */
+  bottom: 10px; /* Distance from the bottom edge */
+  max-width: 50px; /* Adjust the logo size */
+  height: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Container for control area */
+.control-container {
+  display: flex;                 /* Use flexbox for horizontal layout */
+  justify-content: space-between; /* Align left and right sections */
+  align-items: flex-start;        /* Align items to the top */
+  margin-top: 20px;      
+  margin-bottom: 50px;         /* Space above the control area */
+}
+
+/* Left side of the control area */
+.control-left {
+  flex: 1;                        /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  border: 2px solid var(--settings-purple); /* purple border for better visibility */
+  border-radius: 10px;
+  gap: 15px;                      /* Add space between elements */
+  padding: 10px;
+  z-index: 1;
+}
+
+.option-display {
+  margin: 0 15px; /* Add horizontal space around the selected map text */
+  color: #eee; /* Match text color */
+  font-size: 16px; /* Font size for the selected map text */
+}
+
+.button-container {
+  display: flex;
+  align-items: center; /* Center the text vertically with buttons */
+  justify-content: space-between; /* Space between buttons and text */
+}
+
+button {
+  padding: 10px 20px; /* Padding for buttons */
+  background-color: #444; /* Dark background for buttons */
+  color: #eee; /* Light text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+  background-color: #555; /* Change background on hover */
+}
+
+
+
+/* Right side container for Best of Dropdown */
+.control-right {
+  flex: 1;                        /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--settings-purple); /* purple border for better visibility */
+  border-radius: 10px;
+  gap: 15px;                      /* Add space between elements */
+  padding: 0px 20px 0px 0px;
+  margin:  0px 10px 10px 10px;
+  background-color: black;
+
+}
+.control-left h5,
+.control-right h5 {
+  margin-bottom: 10px; /* Space between the heading and controls */
+  color: #eee; /* Text color to match the design */
+  font-size: 18px; /* Font size for the headings */
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+  background-color: var(--settings-purple);
+  color: white;
+}
+
+/* Dropdown Container */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #eee;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+  position: relative;
+}
+
+/* The dropdown arrow */
+.dropdown-btn::after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #eee;
+}
+
+/* The dropdown list, hidden by default */
+.dropdown-list {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #444;
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* List items */
+.dropdown-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background-color: #555;
+}
+
+/* Show the dropdown list when active */
+.custom-dropdown.active .dropdown-list {
+  display: block;
+}
+
+select {
+  appearance: none; /* Removes default arrow */
+  width: 100%;
+  padding: 10px 40px 10px 15px; /* Space for text and arrow: left, right, and top */
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #333;
+  color: #eee;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  position: relative; /* Ensure the custom arrow appears within the select */
+}
+
+select:hover {
+  border-color: #555;
+}
+
+select:focus {
+  border-color: #00ffff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Glowing effect */
+}
+
+/* Custom Arrow */
+.custom-dropdown::after {
+  content: '▼'; /* Custom down arrow */
+  font-size: 14px;
+  position: absolute;
+  right: 15px; /* Aligns the arrow to the right within the select */
+  top: 50%;
+  transform: translateY(-50%); /* Center the arrow vertically */
+  pointer-events: none; /* Prevent the arrow from blocking clicks */
+  color: #eee; /* Same color as the text */
+}
+
+
+/* Label Styling */
+label {
+  font-size: 14px;
+  color: #eee; /* Match the dropdown text color */
+  margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

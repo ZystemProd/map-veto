@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarCraft 2 Map Veto System 2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="map-list">
+
+      <ul class="map-list"></ul> <!-- Empty list to be populated by JS -->
+    </div>
+    
+    <div class="map-preview">
+      <img id="previewImage" src="maps/alcyone.jpg" alt="Map Preview">
+    </div>
+  </div>
+
+  
+<!-- Control Area -->
+<div class="control-container">
+  <div class="control-left">
+    <h5>Map Settings</h5> <!-- Heading for Map Settings -->
+    <div class="button-container">
+      <button id="prevMapButton">Previous</button>
+      <div class="option-display">
+        <p id="selectedMapText">Selected Map: Map 1</p> <!-- Display the selected option -->
+      </div>
+      <button id="nextMapButton">Next</button>
+    </div>
+  
+    <!-- Additional inputs and file upload section -->
+    <input type="text" id="newMapName" placeholder="Enter new map name">
+    <button id="changeMapNameButton">Change Map Name</button> <!-- Button for changing map name -->
+    <input type="file" id="mapFileInput" accept="image/*" style="display:none" onchange="updateMapPreview(event)">
+    <button onclick="document.getElementById('mapFileInput').click()">Change Map Preview</button>
+      </div>
+
+  <div class="control-right">
+    <h5>Game Settings</h5> <!-- Heading for Game Settings -->
+    <div class="button-container">
+      <button id="prevBestOfButton">←</button> <!-- Left arrow for previous -->
+      <div class="option-display">
+        <p id="selectedBestOfText">Best of: None</p> <!-- Display the selected Best of option -->
+      </div>
+      <button id="nextBestOfButton">→</button> <!-- Right arrow for next -->
+    </div>
+
+    <!-- Reset Button -->
+    <button id="resetButton">Reset All</button> <!-- Reset button -->
+  </div>
+</div>
+
+
+
+<!-- Footer Section -->
+<div class="footer">
+
+  <p>Made by Zystem</p>
+  <a href="https://www.twitch.tv/zystem" target="_blank">
+    <img src="img/zystem_logo_tr.png" alt="Zystem Logo" class="footer-logo">
+  </a>
+</div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
