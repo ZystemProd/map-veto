@@ -5,6 +5,9 @@ Map veto system for Starcraft II where you can also set you map order. Perfect a
 ## Visual
 ![Alt text](img/example-1.jpg)
 
+## Controller
+![Alt text](img/controller-1.jpg)
+
 ## Features
 - Veto maps
 - Map order
