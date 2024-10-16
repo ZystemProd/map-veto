@@ -40,12 +40,10 @@ or
 3. Game Settings
     1.  Set the 'Best of' settings to be able to set map order
     2.  When 'Best of' is set to between bo2 - bo9, hover on the right side of the map in map pool with mouse to be able to click to set order: 1. - 9.
-    ![alt text](image.png)
     3.  Press Reset All to reset the veto and map order
 4. Map Settings
     1.  Press 'Show' to show more settings
     2.  To edit map name first select what map you want to edit
-    ![alt text](image-1.png)
     3.  Enter new name in the text field.
     4.  Press the 'Change Map Preview' To change the map image
     5.  Check the 'Hide Map Preview' to hide the map image. 
