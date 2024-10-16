@@ -75,34 +75,42 @@ function toggleVeto(mapNumber) {
 
   // Check if the map is already vetoed
   if (liElement.classList.contains('vetoed-map')) {
-      // If the map is already vetoed, just un-veto it
-      liElement.classList.remove('vetoed-map'); // Remove veto class
+    // If the map is already vetoed, just un-veto it
+    liElement.classList.remove('vetoed-map'); // Remove veto class
+
+    // Only show the order indicator if the "Best of" option is not "None"
+    const currentBestOf = bestOfOptions[currentBestOfIndex]; // Get the current "Best of" selection
+    if (currentBestOf !== "None") {
       indicator.style.display = 'inline-block'; // Show the order indicator again
+    } else {
+      indicator.style.display = 'none'; // Keep the order indicator hidden if "None" is selected
+    }
 
-      // Reset the order indicator when un-vetoing
-      if (indicator.textContent.trim() === "") {
-          indicator.textContent = "1."; // Initialize to "1." if it was empty
-      }
+    // Reset the order indicator when un-vetoing if it was empty
+    if (indicator.textContent.trim() === "") {
+      indicator.textContent = ""; // Make sure it remains empty
+    }
 
-      // Check if there are any other vetoed maps
-      const otherVetoedMaps = document.querySelectorAll('.map-list li.vetoed-map');
-      if (otherVetoedMaps.length === 0) {
-          currentMap = null; // Clear current map if no other map is vetoed
-          resetPreview(); // Reset to placeholder only if no vetoed maps
-      }
+    // Check if there are any other vetoed maps
+    const otherVetoedMaps = document.querySelectorAll('.map-list li.vetoed-map');
+    if (otherVetoedMaps.length === 0) {
+      currentMap = null; // Clear current map if no other map is vetoed
+      resetPreview(); // Reset to placeholder only if no vetoed maps
+    }
   } else {
-      // If the map is not vetoed, add vetoed class
-      liElement.classList.add('vetoed-map'); // Add vetoed class
-      currentMap = mapNumber; // Update current map
-      indicator.style.display = 'none'; // Hide the order indicator
+    // If the map is not vetoed, add vetoed class
+    liElement.classList.add('vetoed-map'); // Add vetoed class
+    currentMap = mapNumber; // Update current map
+    indicator.style.display = 'none'; // Hide the order indicator
   }
 
   // Set the preview image to the currently vetoed map
   const previewImage = document.getElementById('previewImage');
   if (currentMap) {
-      previewImage.src = mapImages[currentMap]; // Show the vetoed map's preview
+    previewImage.src = mapImages[currentMap]; // Show the vetoed map's preview
   }
 }
+
 
 // List of maps
 const maps = [
