@@ -22,7 +22,7 @@
 <!-- Control Area -->
 <div class="control-container">
   <div class="control-left">
-    <h5>Map Settings</h5> <!-- Heading for Map Settings -->
+    <h5>Map Settings <button id="toggleVisibilityButton" class="toggle-button">Hide</button></h5> <!-- Heading for Map Settings -->
     <div class="button-container">
       <button id="prevMapButton">Previous</button>
       <div class="option-display">
@@ -35,8 +35,14 @@
     <input type="text" id="newMapName" placeholder="Enter new map name">
     <button id="changeMapNameButton">Change Map Name</button> <!-- Button for changing map name -->
     <input type="file" id="mapFileInput" accept="image/*" style="display:none" onchange="updateMapPreview(event)">
-    <button onclick="document.getElementById('mapFileInput').click()">Change Map Preview</button>
-      </div>
+    <div id="ChangeMapPreview"><button onclick="document.getElementById('mapFileInput').click()">Change Map Preview</button></div>
+
+    <!-- Add the Hide Map Preview checkbox -->
+    <div id="custom-checkbox" class="custom-checkbox">
+      <input type="checkbox" id="hidePreviewCheckbox" onclick="toggleMapPreviewVisibility()">
+      <label for="hidePreviewCheckbox">Hide Map Preview</label>
+    </div>
+  </div>
 
   <div class="control-right">
     <h5>Game Settings</h5> <!-- Heading for Game Settings -->

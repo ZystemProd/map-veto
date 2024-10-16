@@ -85,7 +85,9 @@ function toggleVeto(mapNumber) {
   const liElement = document.getElementById(`map${mapNumber}`);
   const indicator = liElement.querySelector('.order-indicator');
 
+  // Check if the map is already vetoed
   if (liElement.classList.contains('vetoed-map')) {
+    // If it's already vetoed, un-veto the map
     liElement.classList.remove('vetoed-map');
     const currentBestOf = bestOfOptions[currentBestOfIndex];
     if (currentBestOf !== "None") {
@@ -97,6 +99,23 @@ function toggleVeto(mapNumber) {
       indicator.textContent = "";
     }
   } else {
+    // If it's not vetoed, check if we can veto more maps
+    const unvetoedCount = countUnvetoedMaps();
+    const currentBestOf = bestOfOptions[currentBestOfIndex];
+    const bestOfLimit = {
+      "BO2": 2,
+      "BO3": 3,
+      "BO5": 5,
+      "BO7": 7,
+      "BO9": 9
+    }[currentBestOf];
+
+    // If there is a Best of limit and the number of unvetoed maps equals the limit, prevent further vetoing
+    if (bestOfLimit && unvetoedCount <= bestOfLimit) {
+      return; // Exit without vetoing more maps
+    }
+
+    // Otherwise, veto the map
     liElement.classList.add('vetoed-map');
     indicator.style.display = 'none';
   }
@@ -111,10 +130,12 @@ function toggleVeto(mapNumber) {
   checkUnvetoedMapsForBestOf();
 }
 
+
 // Function to apply pulsing border based on "Best of" setting
 function checkUnvetoedMapsForBestOf() {
   const unvetoedCount = countUnvetoedMaps();
   const bestOfTarget = {
+    "BO2": 2,
     "BO3": 3,
     "BO5": 5,
     "BO7": 7,
@@ -229,6 +250,7 @@ document.getElementById('changeMapNameButton').addEventListener('click', updateM
 // List of Best of options
 const bestOfOptions = [
   "None",
+  "BO2",
   "BO3",
   "BO5",
   "BO7",
@@ -243,17 +265,9 @@ function updateDisplayedBestOf() {
   selectedBestOfText.textContent = `Best of: ${bestOfOptions[currentBestOfIndex]}`;
 }
 
-// Event listener for the previous Best of button
-document.getElementById('prevBestOfButton').addEventListener('click', () => {
-  currentBestOfIndex = (currentBestOfIndex - 1 + bestOfOptions.length) % bestOfOptions.length; // Cycle back
-  updateDisplayedBestOf(); // Update the displayed text
-});
 
-// Event listener for the next Best of button
-document.getElementById('nextBestOfButton').addEventListener('click', () => {
-  currentBestOfIndex = (currentBestOfIndex + 1) % bestOfOptions.length; // Cycle forward
-  updateDisplayedBestOf(); // Update the displayed text
-});
+
+
 
 // Initialize the display for Best of
 updateDisplayedBestOf(); // Set initial display for Best of
@@ -280,6 +294,9 @@ function cycleOrder(mapNumber, event) {
   // Determine the max number of orders based on the current best of selection
   let maxOrders;
   switch (currentBestOf) {
+    case "BO2":
+      maxOrders = 2;
+      break;
     case "BO3":
       maxOrders = 3;
       break;
@@ -379,3 +396,37 @@ function updateMapPreview(event) {
 
 // Add event listener to the reset button
 document.getElementById('resetButton').addEventListener('click', resetAll);
+
+
+// Function to hide or show the map preview
+function toggleMapPreviewVisibility() {
+  const previewImage = document.getElementById('previewImage');
+  const hidePreviewCheckbox = document.getElementById('hidePreviewCheckbox');
+  
+  if (hidePreviewCheckbox.checked) {
+    previewImage.style.display = 'none'; // Hide the preview image
+  } else {
+    previewImage.style.display = 'block'; // Show the preview image
+  }
+}
+
+
+document.getElementById('toggleVisibilityButton').addEventListener('click', function() {
+  const elementsToToggle = [
+    document.querySelector('.button-container'),
+    document.getElementById('newMapName'),
+    document.getElementById('changeMapNameButton'),
+    document.getElementById('ChangeMapPreview'),
+    document.getElementById('custom-checkbox') // Assuming this is the checkbox ID
+  ];
+
+  let allHidden = elementsToToggle.every(el => el.classList.contains('hidden'));
+
+  // Toggle the visibility of each element
+  elementsToToggle.forEach(el => {
+    el.classList.toggle('hidden'); // Toggle the 'hidden' class
+  });
+
+  // Update button text based on visibility
+  this.textContent = allHidden ? 'Hide' : 'Show';
+});

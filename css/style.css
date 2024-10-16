@@ -24,6 +24,7 @@
 }
 
 body {
+  
   font-family: Arial, sans-serif;
   background-color: black; /* Set the background to black */
   color: white; /* Set the text color to white */
@@ -39,24 +40,28 @@ body {
   display: flex;
   justify-content: center; /* Center the container */
   align-items: flex-start;
-  max-width: 800px; /* Reduce the overall container width */
-
+  max-width: 1200px; /* or any value suitable for your design */
   width: 100%;
   gap: 10px; /* Add gap between map list and map preview */
+  margin: 0 auto; /* Center the container */
 }
 
 .map-list {
   display: initial;
-  width: 50%;
+  width: 30%;
   max-height: 100%;
   overflow-y: auto;
   position: relative; /* Required for positioning the order indicator */
+  padding:20px;
 }
 
 .map-preview {
-  width: 56%; /* Adjust the width to make the preview wider */
+  width: 45%; /* Adjust the width to make the preview wider */
   text-align: center;
   height: 500px; /* Set a fixed height for the map preview container */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 #previewImage {
@@ -66,6 +71,10 @@ body {
   object-fit: contain; /* Scale the image while maintaining aspect ratio */
   border: 2px solid var(--darker-blue); /* White border for better visibility */
   border-radius: 30px;
+  margin-top: 25px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 /* Other styles remain unchanged */
@@ -95,9 +104,10 @@ body {
 
 /* Styling for the order indicator */
 .order-indicator {
-  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
   display: inline-block; /* Show as inline-block */
-  height: 10px;
+  height: 15px;
   width: 10%; /* Give it 10% width */
   text-align: center; /* Center the text */
   color: white; /* White text color */
@@ -114,7 +124,7 @@ body {
 /* Normal hover effect */
 .map-list li:hover {
   border-color: var(--hover-blue); /* Neon blue border on hover */
-  background: linear-gradient(to top, black, var(--dark-blue)); /* Gradient background on hover */
+  background: #03040f; /* background on hover */
 }
 
 /* Vetoed maps (checked maps) */
@@ -126,7 +136,7 @@ body {
 /* Hover effect for vetoed maps */
 .map-list li.vetoed-map:hover {
   border-color: var(--hover-red); /* Neon red border on hover when vetoed */
-  background: linear-gradient(to top, black, #330000); /* Gradient background for vetoed maps */
+  background:  #330000; /* background for vetoed maps */
 }
 
 /* Hide the indicator for vetoed maps */
@@ -198,8 +208,21 @@ select, input[type="text"], button {
   background-color: black;
   border: 2px solid var(--settings-purple); /* purple border for better visibility */
   border-radius: 10px;
-  gap: 15px;                      /* Add space between elements */
-  padding: 10px;
+  gap: 5px;                      /* Add space between elements */
+  padding: 0 10px 0 10px;
+  z-index: 1;
+}
+
+/* Right side container for Best of Dropdown */
+.control-right {
+  flex: 1;                        /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  border: 2px solid var(--settings-purple); /* purple border for better visibility */
+  border-radius: 10px;
+  gap: 5px;                      /* Add space between elements */
+  padding: 0 10px 0 10px;
   z-index: 1;
 }
 
@@ -229,27 +252,27 @@ button:hover {
   background-color: #555; /* Change background on hover */
 }
 
-
-
-/* Right side container for Best of Dropdown */
-.control-right {
-  flex: 1;                        /* Take up remaining space */
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--settings-purple); /* purple border for better visibility */
-  border-radius: 10px;
-  gap: 15px;                      /* Add space between elements */
-  padding: 0px 20px 0px 0px;
-  margin:  0px 10px 10px 10px;
-  background-color: black;
-
+.toggle-content {
+  transition: max-height 0.5s ease, opacity 0.5s ease; /* Transition for max-height and opacity */
+  max-height: 500px; /* Adjust as needed */
+  opacity: 1; /* Initially visible */
+  overflow: hidden; /* Hide overflow */
 }
+
+.toggle-content.hidden {
+  max-height: 0; /* Set to 0 when hidden */
+  opacity: 0; /* Make it invisible */
+  pointer-events: none; /* Disable pointer events */
+}
+
+
 .control-left h5,
 .control-right h5 {
   margin-bottom: 10px; /* Space between the heading and controls */
   color: #eee; /* Text color to match the design */
   font-size: 18px; /* Font size for the headings */
   text-align: center;
+  margin-top: 50px;
 }
 
 button {
@@ -367,27 +390,93 @@ label {
 /* Pulsing border animation */
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 10px 2px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 14px 2px rgba(0, 255, 255, 0.2);
   }
   50% {
-    box-shadow: 0 0 20px 4px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 14px 4px rgba(0, 255, 255, 0.99);
   }
   100% {
-    box-shadow: 0 0 10px 2px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 14px 2px rgba(0, 255, 255, 0.2);
   }
 }
 
 /* Class to apply the pulsing border */
 .pulsing-border {
-  animation: pulse 1.5s infinite;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+/* Style the checkbox container */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Custom checkbox label style */
+.custom-checkbox label {
+  position: relative;
+  padding-left: 30px; /* Space for the custom checkbox */
+  cursor: pointer;
+  color: #eee; /* Match the theme */
+  font-size: 16px;
+  user-select: none;
+}
+
+/* Custom checkbox design */
+.custom-checkbox label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--settings-purple); /* Neon blue border */
+  border-radius: 4px;
+  background-color: #333; /* Dark background */
+  transition: all 0.3s ease;
+  transform: translateY(-13%); /* Center the arrow vertically */
+
+}
+
+/* Checked state - Neon glow effect */
+.custom-checkbox input[type="checkbox"]:checked + label:before {
+  background-color: #625b9d; /* Neon blue background when checked */
+
+}
+
+/* Checkmark - shown when checked */
+.custom-checkbox input[type="checkbox"]:checked + label:after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 8px;
+  height: 16px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  background: none;
+}
+
+/* Label hover effect */
+.custom-checkbox label:hover:before {
+  border-color: #555; /* Darker border on hover */
+}
+
+.hidden {
+  display: none; /* Hides the element */
 }
 
 
 
-
-
-
-
+#mapFileInput {
+  display: block;
+}
 
 
 
