@@ -68,48 +68,89 @@ function showPreview(mapNumber) {
   lastHoveredMap = mapNumber; // Update last hovered map
 }
 
+// Function to count unvetoed maps
+function countUnvetoedMaps() {
+  const allMaps = document.querySelectorAll('.map-list li');
+  let unvetoedCount = 0;
+  allMaps.forEach(liElement => {
+    if (!liElement.classList.contains('vetoed-map')) {
+      unvetoedCount++;
+    }
+  });
+  return unvetoedCount;
+}
+
 // Function to toggle the veto
 function toggleVeto(mapNumber) {
-  const liElement = document.getElementById(`map${mapNumber}`); // Select the li using its id
-  const indicator = liElement.querySelector('.order-indicator'); // Get the order indicator
+  const liElement = document.getElementById(`map${mapNumber}`);
+  const indicator = liElement.querySelector('.order-indicator');
 
-  // Check if the map is already vetoed
   if (liElement.classList.contains('vetoed-map')) {
-    // If the map is already vetoed, just un-veto it
-    liElement.classList.remove('vetoed-map'); // Remove veto class
-
-    // Only show the order indicator if the "Best of" option is not "None"
-    const currentBestOf = bestOfOptions[currentBestOfIndex]; // Get the current "Best of" selection
+    liElement.classList.remove('vetoed-map');
+    const currentBestOf = bestOfOptions[currentBestOfIndex];
     if (currentBestOf !== "None") {
-      indicator.style.display = 'inline-block'; // Show the order indicator again
+      indicator.style.display = 'inline-block';
     } else {
-      indicator.style.display = 'none'; // Keep the order indicator hidden if "None" is selected
+      indicator.style.display = 'none';
     }
-
-    // Reset the order indicator when un-vetoing if it was empty
     if (indicator.textContent.trim() === "") {
-      indicator.textContent = ""; // Make sure it remains empty
-    }
-
-    // Check if there are any other vetoed maps
-    const otherVetoedMaps = document.querySelectorAll('.map-list li.vetoed-map');
-    if (otherVetoedMaps.length === 0) {
-      currentMap = null; // Clear current map if no other map is vetoed
-      resetPreview(); // Reset to placeholder only if no vetoed maps
+      indicator.textContent = "";
     }
   } else {
-    // If the map is not vetoed, add vetoed class
-    liElement.classList.add('vetoed-map'); // Add vetoed class
-    currentMap = mapNumber; // Update current map
-    indicator.style.display = 'none'; // Hide the order indicator
+    liElement.classList.add('vetoed-map');
+    indicator.style.display = 'none';
   }
 
-  // Set the preview image to the currently vetoed map
+  currentMap = mapNumber;
   const previewImage = document.getElementById('previewImage');
   if (currentMap) {
-    previewImage.src = mapImages[currentMap]; // Show the vetoed map's preview
+    previewImage.src = mapImages[currentMap];
+  }
+
+  // Check the number of unvetoed maps
+  checkUnvetoedMapsForBestOf();
+}
+
+// Function to apply pulsing border based on "Best of" setting
+function checkUnvetoedMapsForBestOf() {
+  const unvetoedCount = countUnvetoedMaps();
+  const bestOfTarget = {
+    "BO3": 3,
+    "BO5": 5,
+    "BO7": 7,
+    "BO9": 9
+  };
+
+  const currentBestOf = bestOfOptions[currentBestOfIndex];
+
+  const allMaps = document.querySelectorAll('.map-list li');
+  allMaps.forEach(liElement => {
+    liElement.classList.remove('pulsing-border'); // Remove existing pulsing border
+  });
+
+  // Apply the pulsing effect if unvetoed maps match the target
+  if (bestOfTarget[currentBestOf] && unvetoedCount === bestOfTarget[currentBestOf]) {
+    allMaps.forEach(liElement => {
+      if (!liElement.classList.contains('vetoed-map')) {
+        liElement.classList.add('pulsing-border');
+      }
+    });
   }
 }
+
+// Ensure pulsing is checked when the "Best of" changes
+document.getElementById('nextBestOfButton').addEventListener('click', () => {
+  currentBestOfIndex = (currentBestOfIndex + 1) % bestOfOptions.length;
+  updateDisplayedBestOf();
+  checkUnvetoedMapsForBestOf(); // Check pulsing after changing Best of
+});
+
+document.getElementById('prevBestOfButton').addEventListener('click', () => {
+  currentBestOfIndex = (currentBestOfIndex - 1 + bestOfOptions.length) % bestOfOptions.length;
+  updateDisplayedBestOf();
+  checkUnvetoedMapsForBestOf(); // Check pulsing after changing Best of
+});
+
 
 
 // List of maps
