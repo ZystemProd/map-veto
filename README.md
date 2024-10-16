@@ -17,7 +17,7 @@ Map veto system for Starcraft II where you can also set you map order. Perfect a
 No installation needed
 
 ### Prerequisites
-- Web browser 
+- Web browser <br>
 or
 - Livestreaming software (ex. OBS)
 
@@ -39,14 +39,16 @@ or
 2. Hover over the maps to se a preview of the map
 3. Game Settings
     1.  Set the 'Best of' settings to be able to set map order
-    2.  When 'Best of' is set to between bo2 - bo9, hover on the right side of the map in map pool with mouse to be able to click to set order: 1. - 9.
+    2.  When 'Best of' is set to between bo2 - bo9, hover on the right side of the map in map pool with mouse to be able to click to set order: 1. - 9.<br>
+    ![Alt text](img/map_order-1.jpg)
     3.  Press Reset All to reset the veto and map order
 4. Map Settings
     1.  Press 'Show' to show more settings
     2.  To edit map name first select what map you want to edit
     3.  Enter new name in the text field.
     4.  Press the 'Change Map Preview' To change the map image
-    5.  Check the 'Hide Map Preview' to hide the map image. 
+    5.  Check the 'Hide Map Preview' to hide the map image.
+    **_NOTE:_** This settings won't save for next time running this software 
 
 ## License
 This project is licensed under the terms of the MIT license.
@@ -54,4 +56,3 @@ This project is licensed under the terms of the MIT license.
 ## Contact
 Mattias (Zystem) Viklund
 Email: mattiasviklund.production@gmail.com 
-
