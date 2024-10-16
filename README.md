@@ -28,9 +28,9 @@ or
 - Livestreaming software (ex. OBS)
 
 ### Instructions
-1. For Web browser
+1. For **Web browser**
     1. Open index.html in your favorite browser
-2. For OBS
+2. For **OBS**
     1. Make a 'Browser' source
     2. For Browser properties:
         1. Check "Local File" checkbox
