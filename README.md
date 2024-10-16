@@ -16,7 +16,7 @@ Map veto system for Starcraft II where you can also set you map order. Perfect a
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
-3. [Bugs & Support](#Bugs&Support)
+3. [Bugs & Support](#bugs-and-support)
 4. [License](#license)
 5. [Contact](#contact)
 
@@ -62,9 +62,8 @@ or
     >
     > These settings won't save for next time running this program.
 
-## Bugs & Support
-Bugs & Support
-Connect with me on Discord in the [overlay](https://discord.com/channels/801938615730307092/1295352407177564241) channel.
+## Bugs and Support
+Connect with me on Discord in the [#overlay](https://discord.com/channels/801938615730307092/1295352407177564241) channel.
 
 ## License
 This project is licensed under the terms of the MIT license.
