@@ -16,6 +16,7 @@ Map veto system for Starcraft II where you can also set you map order. Perfect a
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
+3. [Bugs & Support](#Bugs&Support)
 4. [License](#license)
 5. [Contact](#contact)
 
@@ -32,6 +33,9 @@ or
     1. Open index.html in your favorite browser
 2. For **OBS**
     1. Make a 'Browser' source
+    > **Note**
+    >[OBS](https://obsproject.com/kb/sources-guide)
+    >[Streamlabs](https://streamlabs.com/content-hub/post/introducing-browser-source-interaction-for-streamlabs-desktop)
     2. For Browser properties:
         1. Check "Local File" checkbox
         2. Press Browse and load up index.html in the folder.
@@ -56,7 +60,11 @@ or
     5.  Check the 'Hide Map Preview' to hide the map image.
     > **Note**
     >
-    > This settings won't save for next time running this software
+    > These settings won't save for next time running this program.
+
+## Bugs & Support
+Bugs & Support
+Connect with me on Discord in the [overlay](https://discord.com/channels/801938615730307092/1295352407177564241) channel.
 
 ## License
 This project is licensed under the terms of the MIT license.
