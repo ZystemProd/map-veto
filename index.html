@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarCraft 2 Map Veto System 2</title>
+  <title>SC2 Map Veto</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,11 +18,10 @@
     </div>
   </div>
 
-  
 <!-- Control Area -->
 <div class="control-container">
   <div class="control-left">
-    <h5>Map Settings <button id="toggleVisibilityButton" class="toggle-button">Hide</button></h5> <!-- Heading for Map Settings -->
+    <h5>Map Settings <button id="toggleVisibilityButton" class="toggle-button">Show</button></h5> <!-- Heading for Map Settings -->
     <div class="button-container">
       <button id="prevMapButton">Previous</button>
       <div class="option-display">
@@ -35,7 +34,9 @@
     <input type="text" id="newMapName" placeholder="Enter new map name">
     <button id="changeMapNameButton">Change Map Name</button> <!-- Button for changing map name -->
     <input type="file" id="mapFileInput" accept="image/*" style="display:none" onchange="updateMapPreview(event)">
-    <div id="ChangeMapPreview"><button onclick="document.getElementById('mapFileInput').click()">Change Map Preview</button></div>
+    <div id="ChangeMapPreview">
+      <button onclick="document.getElementById('mapFileInput').click()">Change Map Preview</button>
+    </div>
 
     <!-- Add the Hide Map Preview checkbox -->
     <div id="custom-checkbox" class="custom-checkbox">
@@ -58,8 +59,6 @@
     <button id="resetButton">Reset All</button> <!-- Reset button -->
   </div>
 </div>
-
-
 
 <!-- Footer Section -->
 <div class="footer">

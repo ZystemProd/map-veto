@@ -24,7 +24,6 @@
 }
 
 body {
-  
   font-family: Arial, sans-serif;
   background-color: black; /* Set the background to black */
   color: white; /* Set the text color to white */
@@ -265,7 +264,6 @@ button:hover {
   pointer-events: none; /* Disable pointer events */
 }
 
-
 .control-left h5,
 .control-right h5 {
   margin-bottom: 10px; /* Space between the heading and controls */
@@ -377,7 +375,6 @@ select:focus {
   color: #eee; /* Same color as the text */
 }
 
-
 /* Label Styling */
 label {
   font-size: 14px;
@@ -472,14 +469,6 @@ label {
   display: none; /* Hides the element */
 }
 
-
-
 #mapFileInput {
   display: block;
 }
-
-
-
-
-
-

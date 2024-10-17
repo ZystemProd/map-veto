@@ -1,5 +1,3 @@
-
-
 const mapData = [
   { id: 1, name: 'Alcyone' },
   { id: 2, name: 'Amphion' },
@@ -34,7 +32,6 @@ function renderMapList() {
     mapList.appendChild(li);
   });
 }
-
 
 // Call this function when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', renderMapList);
@@ -130,7 +127,6 @@ function toggleVeto(mapNumber) {
   checkUnvetoedMapsForBestOf();
 }
 
-
 // Function to apply pulsing border based on "Best of" setting
 function checkUnvetoedMapsForBestOf() {
   const unvetoedCount = countUnvetoedMaps();
@@ -172,8 +168,6 @@ document.getElementById('prevBestOfButton').addEventListener('click', () => {
   checkUnvetoedMapsForBestOf(); // Check pulsing after changing Best of
 });
 
-
-
 // List of maps
 const maps = [
   "Map 1",
@@ -210,7 +204,6 @@ document.getElementById('nextMapButton').addEventListener('click', () => {
 // Initialize the display
 updateDisplayedMap(); // Set initial display
 
-
 // Function to update the map name in the list
 function updateMapName() {
   // Get the currently selected map from the text
@@ -241,11 +234,8 @@ function updateMapName() {
   }
 }
 
-
 // Add event listener to the Change Map Name button
 document.getElementById('changeMapNameButton').addEventListener('click', updateMapName);
-
-
 
 // List of Best of options
 const bestOfOptions = [
@@ -264,10 +254,6 @@ function updateDisplayedBestOf() {
   const selectedBestOfText = document.getElementById('selectedBestOfText');
   selectedBestOfText.textContent = `Best of: ${bestOfOptions[currentBestOfIndex]}`;
 }
-
-
-
-
 
 // Initialize the display for Best of
 updateDisplayedBestOf(); // Set initial display for Best of
@@ -332,7 +318,6 @@ function cycleOrder(mapNumber, event) {
   indicator.textContent = nextOrder;
 }
 
-
 // Function to reset all vetoed maps and indicators
 function resetAll() {
   // Reset veto status for all maps
@@ -391,12 +376,8 @@ function updateMapPreview(event) {
   }
 }
 
-
-
-
 // Add event listener to the reset button
 document.getElementById('resetButton').addEventListener('click', resetAll);
-
 
 // Function to hide or show the map preview
 function toggleMapPreviewVisibility() {
@@ -410,6 +391,19 @@ function toggleMapPreviewVisibility() {
   }
 }
 
+// Add hidden class to the elements on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const elementsToHide = [
+    document.querySelector('.button-container'),
+    document.getElementById('newMapName'),
+    document.getElementById('changeMapNameButton'),
+    document.getElementById('ChangeMapPreview'),
+    document.getElementById('custom-checkbox') // Assuming this is the checkbox ID
+  ];
+
+  // Hide elements by adding the 'hidden' class
+  elementsToHide.forEach(el => el.classList.add('hidden'));
+});
 
 document.getElementById('toggleVisibilityButton').addEventListener('click', function() {
   const elementsToToggle = [
