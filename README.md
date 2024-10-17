@@ -69,5 +69,5 @@ Connect with me on Discord in the [#overlay](https://discord.com/channels/801938
 This project is licensed under the terms of the MIT license.
 
 ## Contact
-Mattias (Zystem) Viklund
+Mattias (Zystem) Viklund <br>
 Email: mattiasviklund.production@gmail.com 
