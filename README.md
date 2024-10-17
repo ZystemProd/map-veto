@@ -3,7 +3,7 @@
 Map veto system for Starcraft II where you can also set you map order. Perfect addition when doing tounament or showing you viewers on livestream what map is being vetoed and what map order the series is.
 
 ## Visual
-![Alt text](img/teaser-1.gif)
+![Alt text](img/example-1.jpg)
 
 ## Controller
 ![Alt text](img/controller-1.jpg)
