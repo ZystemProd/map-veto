@@ -318,12 +318,15 @@ function cycleOrder(mapNumber, event) {
   indicator.textContent = nextOrder;
 }
 
-// Function to reset all vetoed maps and indicators
+// Function to reset all vetoed maps, indicators, and pulsing borders
 function resetAll() {
-  // Reset veto status for all maps
+  // Select all the map list items
   const allMaps = document.querySelectorAll('.map-list li');
+
+  // Reset veto status, order indicators, and remove pulsing-border class
   allMaps.forEach(liElement => {
     liElement.classList.remove('vetoed-map'); // Remove veto class
+    liElement.classList.remove('pulsing-border'); // Remove pulsing-border class
     const indicator = liElement.querySelector('.order-indicator');
     indicator.textContent = ""; // Clear the order indicator text
     indicator.style.display = 'inline-block'; // Show the order indicator
@@ -338,7 +341,7 @@ function resetAll() {
   // Reset the preview image
   resetPreview(); // Reset to placeholder image
   
-  // Reset best of selection to None
+  // Reset the best of selection to "None"
   currentBestOfIndex = 0; // Reset to the first option (None)
   updateDisplayedBestOf(); // Update displayed Best of text
 }
