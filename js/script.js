@@ -10,6 +10,23 @@ const mapData = [
   { id: 9, name: 'Site Delta' }
 ];
 
+const BEST_OF_SETTINGS = {
+  "None": 0,
+  "BO2": 2,
+  "BO3": 3,
+  "BO5": 5,
+  "BO7": 7,
+  "BO9": 9
+};
+
+function canVetoMoreMaps() {
+  const unvetoedCount = countUnvetoedMaps();
+  const currentBestOf = bestOfOptions[currentBestOfIndex];
+  const bestOfLimit = BEST_OF_SETTINGS[currentBestOf];
+  return unvetoedCount > bestOfLimit; // True if you can veto more maps
+}
+
+
 function keepHoveredMap() {
   if (lastHoveredMap) {
     showPreview(lastHoveredMap); // Continue showing the last hovered map
@@ -97,20 +114,10 @@ function toggleVeto(mapNumber) {
     }
   } else {
     // If it's not vetoed, check if we can veto more maps
-    const unvetoedCount = countUnvetoedMaps();
-    const currentBestOf = bestOfOptions[currentBestOfIndex];
-    const bestOfLimit = {
-      "BO2": 2,
-      "BO3": 3,
-      "BO5": 5,
-      "BO7": 7,
-      "BO9": 9
-    }[currentBestOf];
-
-    // If there is a Best of limit and the number of unvetoed maps equals the limit, prevent further vetoing
-    if (bestOfLimit && unvetoedCount <= bestOfLimit) {
+    if (!canVetoMoreMaps()) {
       return; // Exit without vetoing more maps
     }
+
 
     // Otherwise, veto the map
     liElement.classList.add('vetoed-map');

@@ -8,3 +8,7 @@
 ## [1.0.1] - 2024-10-18
 ### Fix
 - "Reset all" button now reset the glowing border effect of finl "best of" maps
+
+## [1.0.2] - 2024-10-18
+### Optimization
+- Clean up the code for veto limits
