@@ -12,3 +12,9 @@
 ## [1.0.2] - 2024-10-18
 ### Optimization
 - Clean up the code for veto limits
+
+## [1.0.3] - 2024-10-19
+### Design
+- fixed miss-aligned checkbox activation
+- aligned "Hide Map Preview" label vertical center
+- Rebrand to "Z-Map Veto Overlay"

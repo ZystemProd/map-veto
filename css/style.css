@@ -418,6 +418,7 @@ label {
 .custom-checkbox label {
   position: relative;
   padding-left: 30px; /* Space for the custom checkbox */
+  padding-top: 5px;
   cursor: pointer;
   color: #eee; /* Match the theme */
   font-size: 16px;
@@ -436,7 +437,7 @@ label {
   border-radius: 4px;
   background-color: #333; /* Dark background */
   transition: all 0.3s ease;
-  transform: translateY(-13%); /* Center the arrow vertically */
+  transform: translateY(10%); /* Center the arrow vertically */
 
 }
 
