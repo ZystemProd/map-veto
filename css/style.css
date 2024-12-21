@@ -23,11 +23,19 @@
   overflow: hidden; /* Prevent overflow */
 }
 
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 body {
+  display: absolute;
   font-family: Arial, sans-serif;
   background-color: black; /* Set the background to black */
   color: white; /* Set the text color to white */
-  display: flex;
   flex-direction: column;
   justify-content: center; /* Center the container horizontally */
   align-items: center; /* Center the container vertically */
@@ -52,7 +60,9 @@ body {
   overflow-y: auto;
   position: relative; /* Required for positioning the order indicator */
   padding:20px;
+  vertical-align: middle;
 }
+
 
 .map-preview {
   width: 45%; /* Adjust the width to make the preview wider */
@@ -86,6 +96,7 @@ body {
 .map-list li {
   margin: 10px 0;
   padding: 10px;
+  padding-top: 12px;
   background-color: var(--dark-blue); /* Very dark blue background */
   max-height: 16px;
   border: 2px solid var(--darker-blue); /* Dark blue border */
@@ -97,15 +108,23 @@ body {
   cursor: pointer; /* Change cursor to pointer for better UX */
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
-  
+  user-select: none; /* Standard syntax */  
+}
+
+.map-list li span:not(.order-indicator) {
+  display: inline-block;
+
+  vertical-align: middle; /* Ensures alignment */
+  font-size: inherit; /* Maintain the font size */
 }
 
 /* Styling for the order indicator */
 .order-indicator {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  display: inline-block; /* Show as inline-block */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  font-size: 16px; /* Adjust text size as needed */
   height: 15px;
   width: 10%; /* Give it 10% width */
   text-align: center; /* Center the text */
@@ -115,6 +134,11 @@ body {
   transition: background 0.3s; /* Smooth background transition */
   cursor: pointer; /* Change cursor to pointer for better UX */
   visibility: visible; /* Ensure it's visible initially */
+
+}
+
+.order-indicator span {
+  background: #f50000; /* Darker background on hover */
 }
 
 .order-indicator:hover {
@@ -192,12 +216,13 @@ select, input[type="text"], button {
 
 /* Container for control area */
 .control-container {
-  display: flex;                 /* Use flexbox for horizontal layout */
-  justify-content: space-between; /* Align left and right sections */
-  align-items: flex-start;        /* Align items to the top */
-  margin-top: 20px;      
-  margin-bottom: 50px;         /* Space above the control area */
-}
+  display: flex;
+  justify-content: center; /* Center the container */
+  align-items: flex-start;
+  max-width: 1200px; /* or any value suitable for your design */
+  width: 100%;
+  gap: 10px; /* Add gap between map list and map preview */
+  margin: 0 auto; /* Center the container */}
 
 /* Left side of the control area */
 .control-left {
@@ -270,9 +295,12 @@ button:hover {
   color: #eee; /* Text color to match the design */
   font-size: 18px; /* Font size for the headings */
   text-align: center;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
+.control-right h5 {
+  margin-top: 30px;
+}
 button {
   margin-top: 10px;
   background-color: var(--settings-purple);

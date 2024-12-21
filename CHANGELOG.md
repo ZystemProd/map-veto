@@ -18,3 +18,8 @@
 - fixed miss-aligned checkbox activation
 - aligned "Hide Map Preview" label vertical center
 - Rebrand to "Z-Map Veto Overlay"
+## [1.0.4] - 2024-12-21
+### Maps
+- Updated the map pool to current map pool
+- Vertical align the map names text & order-indicator
+- Fix responsibillity

@@ -1,13 +1,13 @@
 const mapData = [
-  { id: 1, name: 'Alcyone' },
-  { id: 2, name: 'Amphion' },
-  { id: 3, name: 'Crimson Court' },
-  { id: 4, name: 'Dynasty' },
-  { id: 5, name: 'Ghost River' },
-  { id: 6, name: 'Goldenaura' },
-  { id: 7, name: 'Oceanborn' },
-  { id: 8, name: 'Post-Youth' },
-  { id: 9, name: 'Site Delta' }
+  { id: 1, name: 'Abyssal Reef' },
+  { id: 2, name: 'Amygdala' },
+  { id: 3, name: 'El Dorado' },
+  { id: 4, name: "King's Cove" },
+  { id: 5, name: 'Ley Lines' },
+  { id: 6, name: 'Neon Violet Square' },
+  { id: 7, name: 'Snowpiercer' },
+  { id: 8, name: 'Ultralove' },
+  { id: 9, name: 'Whispers of Gold' }
 ];
 
 const BEST_OF_SETTINGS = {
@@ -56,15 +56,15 @@ document.addEventListener('DOMContentLoaded', renderMapList);
 
 // Object to store map preview images (initial images are placeholders)
 let mapImages = {
-  1: "maps/alcyone.jpg",
-  2: "maps/amphion.jpg",
-  3: "maps/crimson_court.jpg",
-  4: "maps/dynasty.jpg",
-  5: "maps/ghost_river.jpg",
-  6: "maps/goldenaura.jpg",
-  7: "maps/oceanborn.jpg",
-  8: "maps/post-youth.jpg",
-  9: "maps/site_delta.jpg"
+  1: "maps/abyssal_reef.jpg",
+  2: "maps/amygdala.jpg",
+  3: "maps/el_dorado.jpg",
+  4: "maps/king's_cove.jpg",
+  5: "maps/ley_lines.jpg",
+  6: "maps/neon_violet_square.jpg",
+  7: "maps/snowpiercer.jpg",
+  8: "maps/ultralove.jpg",
+  9: "maps/whispers_of_gold.jpg"
 };
 
 // Variable to track the currently selected map in the list
