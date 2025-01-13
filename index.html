@@ -1,76 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Z-Map Veto Overlay</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Version: 1.0.4 -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-<body>
-  <div class="container">
-    <div class="map-list">
-
-      <ul class="map-list"></ul> <!-- Empty list to be populated by JS -->
-    </div>
-    
-    <div class="map-preview">
-      <img id="previewImage" src="maps/abyssal_reef.jpg" alt="Map Preview">
-    </div>
-  </div>
-
-<!-- Control Area -->
-<div class="control-container">
-  <div class="control-left">
-    <h5>Map Settings <button id="toggleVisibilityButton" class="toggle-button">Show</button></h5> <!-- Heading for Map Settings -->
-    <div class="button-container">
-      <button id="prevMapButton">Previous</button>
-      <div class="option-display">
-        <p id="selectedMapText">Selected Map: Map 1</p> <!-- Display the selected option -->
+  <body>
+    <div class="container">
+      <div class="map-list">
+        <ul class="map-list"></ul>
+        <!-- Empty list to be populated by JS -->
       </div>
-      <button id="nextMapButton">Next</button>
-    </div>
-  
-    <!-- Additional inputs and file upload section -->
-    <input type="text" id="newMapName" placeholder="Enter new map name">
-    <button id="changeMapNameButton">Change Map Name</button> <!-- Button for changing map name -->
-    <input type="file" id="mapFileInput" accept="image/*" style="display:none" onchange="updateMapPreview(event)">
-    <div id="ChangeMapPreview">
-      <button onclick="document.getElementById('mapFileInput').click()">Change Map Preview</button>
-    </div>
 
-    <!-- Add the Hide Map Preview checkbox -->
-    <div id="custom-checkbox" class="custom-checkbox">
-      <input type="checkbox" id="hidePreviewCheckbox" onclick="toggleMapPreviewVisibility()">
-      <label for="hidePreviewCheckbox">Hide Map Preview</label>
-    </div>
-  </div>
-
-  <div class="control-right">
-    <h5>Game Settings</h5> <!-- Heading for Game Settings -->
-    <div class="button-container">
-      <button id="prevBestOfButton">←</button> <!-- Left arrow for previous -->
-      <div class="option-display">
-        <p id="selectedBestOfText">Best of: None</p> <!-- Display the selected Best of option -->
+      <div class="map-preview">
+        <img id="previewImage" src="maps/abyssal_reef.jpg" alt="Map Preview" />
       </div>
-      <button id="nextBestOfButton">→</button> <!-- Right arrow for next -->
     </div>
 
-    <!-- Reset Button -->
-    <button id="resetButton">Reset All</button> <!-- Reset button -->
-  </div>
-</div>
+    <!-- Control Area -->
+    <div class="control-container">
+      <div class="control-left">
+        <h5>
+          Map Settings
+          <button id="toggleVisibilityButton" class="toggle-button">
+            Show
+          </button>
+        </h5>
+        <!-- Heading for Map Settings -->
+        <div class="button-container">
+          <button id="prevMapButton">Previous</button>
+          <div class="option-display">
+            <p id="selectedMapText">Selected Map: Map 1</p>
+            <!-- Display the selected option -->
+          </div>
+          <button id="nextMapButton">Next</button>
+        </div>
 
-<!-- Footer Section -->
-<div class="footer">
-  <p>Made by Zystem</p>
-  <a href="https://www.twitch.tv/zystem" target="_blank">
-    <img src="img/zystem_logo_tr.png" alt="Zystem Logo" class="footer-logo">
-  </a>
-  <p>︱Version 1.0.4</p> <!-- Version number here -->
-</div>
+        <!-- Additional inputs and file upload section -->
+        <input type="text" id="newMapName" placeholder="Enter new map name" />
+        <button id="changeMapNameButton">Apply</button>
+        <!-- Button for changing map name -->
+        <input
+          type="file"
+          id="mapFileInput"
+          accept="image/*"
+          style="display: none"
+          onchange="updateMapPreview(event)"
+        />
+        <div id="ChangeMapPreview">
+          <button onclick="document.getElementById('mapFileInput').click()">
+            Change Map Preview
+          </button>
+        </div>
 
+        <!-- Add the Hide Map Preview checkbox -->
+        <div id="custom-checkbox" class="custom-checkbox">
+          <input
+            type="checkbox"
+            id="hidePreviewCheckbox"
+            onclick="toggleMapPreviewVisibility()"
+          />
+          <label for="hidePreviewCheckbox">Hide Map Preview</label>
+        </div>
+      </div>
 
-  <script src="js/script.js"></script>
-</body>
+      <div class="control-right">
+        <h5>Game Settings</h5>
+        <!-- Heading for Game Settings -->
+        <div class="button-container">
+          <button id="prevBestOfButton">←</button>
+          <!-- Left arrow for previous -->
+          <div class="option-display">
+            <p id="selectedBestOfText">Best of: None</p>
+            <!-- Display the selected Best of option -->
+          </div>
+          <button id="nextBestOfButton">→</button>
+          <!-- Right arrow for next -->
+        </div>
+
+        <!-- Reset Button -->
+        <button id="resetButton">Reset All</button>
+        <!-- Reset button -->
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+      <p>Made by Zystem</p>
+      <a href="https://www.twitch.tv/zystem" target="_blank">
+        <img
+          src="img/zystem_logo_tr.png"
+          alt="Zystem Logo"
+          class="footer-logo"
+        />
+      </a>
+      <p>︱Version 1.0.41</p>
+      <!-- Version number here -->
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>

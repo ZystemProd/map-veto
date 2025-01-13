@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'MyCustomFont'; /* Use any name you want */
-    src: url('../fonts/EuroStyleNormal.ttf') format('truetype'); /* Adjust path based on your structure */
-    font-weight: normal;
-    font-style: normal;
+  font-family: "MyCustomFont"; /* Use any name you want */
+  src: url("../fonts/EuroStyleNormal.ttf") format("truetype"); /* Adjust path based on your structure */
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
@@ -11,19 +11,20 @@
   --vetoed-red: #8b0000;
   --hover-blue: #00ffff;
   --hover-red: #ff3333;
-  --settings-purple: #322F4F;
+  --settings-purple: #322f4f;
 }
 
 /* Apply the font to the map list */
-.map-list  {
-  font-family: 'MyCustomFont', sans-serif; /* Use your custom font and fall back to a default sans-serif font */
+.map-list {
+  font-family: "MyCustomFont", sans-serif; /* Use your custom font and fall back to a default sans-serif font */
   font-size: 19px;
 
   max-height: 100px; /* Set a fixed height for the map list */
   overflow: hidden; /* Prevent overflow */
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -59,10 +60,10 @@ body {
   max-height: 100%;
   overflow-y: auto;
   position: relative; /* Required for positioning the order indicator */
-  padding:20px;
+  padding: 20px;
   vertical-align: middle;
+  letter-spacing: 0.1rem;
 }
-
 
 .map-preview {
   width: 45%; /* Adjust the width to make the preview wider */
@@ -90,7 +91,6 @@ body {
 .map-list ul {
   list-style-type: none;
   padding: 0;
-
 }
 
 .map-list li {
@@ -108,7 +108,7 @@ body {
   cursor: pointer; /* Change cursor to pointer for better UX */
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */  
+  user-select: none; /* Standard syntax */
 }
 
 .map-list li span:not(.order-indicator) {
@@ -134,7 +134,6 @@ body {
   transition: background 0.3s; /* Smooth background transition */
   cursor: pointer; /* Change cursor to pointer for better UX */
   visibility: visible; /* Ensure it's visible initially */
-
 }
 
 .order-indicator span {
@@ -159,7 +158,7 @@ body {
 /* Hover effect for vetoed maps */
 .map-list li.vetoed-map:hover {
   border-color: var(--hover-red); /* Neon red border on hover when vetoed */
-  background:  #330000; /* background for vetoed maps */
+  background: #330000; /* background for vetoed maps */
 }
 
 /* Hide the indicator for vetoed maps */
@@ -169,7 +168,6 @@ body {
 
 label span {
   color: white; /* Ensure labels and spans are white */
-
 }
 
 h2 {
@@ -182,7 +180,9 @@ h2 {
   gap: 10px; /* Add spacing between dropdowns */
 }
 
-select, input[type="text"], button {
+select,
+input[type="text"],
+button {
   margin: 10px;
   padding: 5px;
   font-size: 16px;
@@ -222,30 +222,31 @@ select, input[type="text"], button {
   max-width: 1200px; /* or any value suitable for your design */
   width: 100%;
   gap: 10px; /* Add gap between map list and map preview */
-  margin: 0 auto; /* Center the container */}
+  margin: 0 auto; /* Center the container */
+}
 
 /* Left side of the control area */
 .control-left {
-  flex: 1;                        /* Take up remaining space */
+  flex: 1; /* Take up remaining space */
   display: flex;
   flex-direction: column;
   background-color: black;
   border: 2px solid var(--settings-purple); /* purple border for better visibility */
   border-radius: 10px;
-  gap: 5px;                      /* Add space between elements */
+  gap: 5px; /* Add space between elements */
   padding: 0 10px 0 10px;
   z-index: 1;
 }
 
 /* Right side container for Best of Dropdown */
 .control-right {
-  flex: 1;                        /* Take up remaining space */
+  flex: 1; /* Take up remaining space */
   display: flex;
   flex-direction: column;
   background-color: black;
   border: 2px solid var(--settings-purple); /* purple border for better visibility */
   border-radius: 10px;
-  gap: 5px;                      /* Add space between elements */
+  gap: 5px; /* Add space between elements */
   padding: 0 10px 0 10px;
   z-index: 1;
 }
@@ -289,9 +290,8 @@ button:hover {
   pointer-events: none; /* Disable pointer events */
 }
 
-.control-left h5,
-.control-right h5 {
-  margin-bottom: 10px; /* Space between the heading and controls */
+.control-left h5 {
+  margin-bottom: 0px; /* Space between the heading and controls */
   color: #eee; /* Text color to match the design */
   font-size: 18px; /* Font size for the headings */
   text-align: center;
@@ -299,7 +299,13 @@ button:hover {
 }
 
 .control-right h5 {
-  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 10px; /* Space between the heading and controls */
+  color: #eee; /* Text color to match the design */
+  font-size: 18px; /* Font size for the headings */
+  text-align: center;
+  margin-top: 10px;
 }
 button {
   margin-top: 10px;
@@ -329,7 +335,7 @@ button {
 
 /* The dropdown arrow */
 .dropdown-btn::after {
-  content: '▼';
+  content: "▼";
   position: absolute;
   right: 10px;
   top: 50%;
@@ -393,7 +399,7 @@ select:focus {
 
 /* Custom Arrow */
 .custom-dropdown::after {
-  content: '▼'; /* Custom down arrow */
+  content: "▼"; /* Custom down arrow */
   font-size: 14px;
   position: absolute;
   right: 15px; /* Aligns the arrow to the right within the select */
@@ -455,7 +461,7 @@ label {
 
 /* Custom checkbox design */
 .custom-checkbox label:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -466,18 +472,16 @@ label {
   background-color: #333; /* Dark background */
   transition: all 0.3s ease;
   transform: translateY(10%); /* Center the arrow vertically */
-
 }
 
 /* Checked state - Neon glow effect */
 .custom-checkbox input[type="checkbox"]:checked + label:before {
   background-color: #625b9d; /* Neon blue background when checked */
-
 }
 
 /* Checkmark - shown when checked */
 .custom-checkbox input[type="checkbox"]:checked + label:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   top: 2px;
