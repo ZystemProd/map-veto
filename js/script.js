@@ -1,13 +1,13 @@
 const mapData = [
-  { id: 1, name: "Abyssal Reef" },
-  { id: 2, name: "Amygdala" },
-  { id: 3, name: "El Dorado" },
-  { id: 4, name: "King's Cove" },
-  { id: 5, name: "Ley Lines" },
-  { id: 6, name: "Neon Violet Square" },
-  { id: 7, name: "Frostline" },
-  { id: 8, name: "Ultralove" },
-  { id: 9, name: "Whispers of Gold" },
+  { id: 1, name: "Incorporeal" },
+  { id: 2, name: "Last Fantasy" },
+  { id: 3, name: "Ley Lines" },
+  { id: 4, name: "Magannatha" },
+  { id: 5, name: "Persephone" },
+  { id: 6, name: "Pylon" },
+  { id: 7, name: "Tokamak" },
+  { id: 8, name: "Torches" },
+  { id: 9, name: "Ultralove" },
 ];
 
 const BEST_OF_SETTINGS = {
@@ -54,15 +54,15 @@ document.addEventListener("DOMContentLoaded", renderMapList);
 
 // Object to store map preview images (initial images are placeholders)
 let mapImages = {
-  1: "maps/abyssal_reef.jpg",
-  2: "maps/amygdala.jpg",
-  3: "maps/el_dorado.jpg",
-  4: "maps/king's_cove.jpg",
-  5: "maps/ley_lines.jpg",
-  6: "maps/neon_violet_square.jpg",
-  7: "maps/snowpiercer.jpg",
-  8: "maps/ultralove.jpg",
-  9: "maps/whispers_of_gold.jpg",
+  1: "maps/incorporeal.webp",
+  2: "maps/last_fantasy.webp",
+  3: "maps/ley_lines.webp",
+  4: "maps/magannatha.webp",
+  5: "maps/persephone.webp",
+  6: "maps/pylon.webp",
+  7: "maps/tokamak.webp",
+  8: "maps/torches.webp",
+  9: "maps/ultralove.webp",
 };
 
 // Variable to track the currently selected map in the list
